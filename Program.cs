@@ -97,7 +97,10 @@ namespace TimeMaterials_Auto
             {
                 Console.WriteLine("Create test Failed");
             }
+
+            //Pause the the browser so the aotmation can catch up
             Thread.Sleep(1000);
+
             //Click Delete button
             driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[7]/td[5]/a[2]")).Click();
 
