@@ -1,5 +1,5 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,53 +7,12 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace TimeMaterials_Auto
+namespace TimeMaterials_Auto.Pages
 {
-    class Program
+    class TMpage
     {
-        static void Main(string[] args)
+        public void TMCreate(IWebDriver driver)
         {
-            //launch chrome browser
-            IWebDriver driver = new ChromeDriver();
-
-            //Maximize the Chrome browser window
-            driver.Manage().Window.Maximize();
-
-            //launch turnup portal
-            driver.Navigate().GoToUrl("http://horse-dev.azurewebsites.net/Account/Login");
-
-            //Enter username
-            IWebElement Username = driver.FindElement(By.Id("UserName"));
-            Username.SendKeys("hari");
-
-            //Enter password
-            IWebElement Password = driver.FindElement(By.Id("Password"));
-            Password.SendKeys("123123");
-
-            //Click on login button
-            IWebElement Login = driver.FindElement(By.XPath("//*[@id='loginForm']/form/div[3]/input[1]"));
-            Login.Click();
-
-            //Validate if the user had logged in successfully
-            IWebElement helloHari = driver.FindElement(By.XPath("//*[@id='logoutForm']/ul/li/a"));
-
-            if (helloHari.Text == "Hello hari!")
-            {
-                Console.WriteLine("Logged in Sccessfully, login test passed");
-            }
-            else
-            {
-                Console.WriteLine("Logged in failed, login test failed");
-            }
-
-            //Click on administration bar
-            IWebElement Adminbar = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
-            Adminbar.Click();
-
-            //Click on Time & Materials
-            IWebElement TimeMaterials = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a"));
-            TimeMaterials.Click();
-
             //Click on create new button
             IWebElement CreateNew = driver.FindElement(By.XPath("//*[@id='container']/p/a"));
             CreateNew.Click();
@@ -99,7 +58,12 @@ namespace TimeMaterials_Auto
                 Console.WriteLine("Create test Failed");
             }
 
-            //Pause the the browser so the aotmation can catch up
+            
+        }
+
+        public void TMEdit(IWebDriver driver)
+        {
+            //Pause the the browser so the automation can catch up
             Thread.Sleep(1000);
 
             //Click edit button
@@ -110,7 +74,7 @@ namespace TimeMaterials_Auto
             IWebElement codenamechange = driver.FindElement(By.Id("Code"));
             codenamechange.Clear();
             codenamechange.SendKeys("Amazing");
-            
+
             //Clear previous description name and add new one
             IWebElement Descnamechange = driver.FindElement(By.Id("Description"));
             Descnamechange.Clear();
@@ -131,8 +95,9 @@ namespace TimeMaterials_Auto
             IWebElement Lastpageagain = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span"));
             Lastpageagain.Click();
 
+            Assert.That(driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[3]/td[1]")).Text == "Amazing");
 
-            if (driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[3]/td[1]")).Text == "Amazing")
+            /*if (driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[3]/td[1]")).Text == "Amazing")
 
             {
                 Console.WriteLine("Edit sucessfully, test passed.");
@@ -140,11 +105,13 @@ namespace TimeMaterials_Auto
             else
             {
                 Console.WriteLine("Edit test Failed");
-            }
+            }*/
+        }
 
+        public void TMDelete(IWebDriver driver)
+        {
             //Click Delete button
             //driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[7]/td[5]/a[2]")).Click();
-
 
         }
     }
