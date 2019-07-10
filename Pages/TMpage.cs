@@ -47,8 +47,9 @@ namespace TimeMaterials_Auto.Pages
             IWebElement Lastpage = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span"));
             Lastpage.Click();
 
+            Assert.That(driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[9]/td[1]")).Text == "Rammy");
             //To find if the test went successful or not
-            if (driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[3]/td[1]")).Text == "Rammy")
+            /*if (driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[3]/td[1]")).Text == "Rammy")
 
             {
                 Console.WriteLine("Create sucessfully, test passed.");
@@ -56,18 +57,21 @@ namespace TimeMaterials_Auto.Pages
             else
             {
                 Console.WriteLine("Create test Failed");
-            }
+            }*/
 
             
         }
 
         public void TMEdit(IWebDriver driver)
         {
-            //Pause the the browser so the automation can catch up
             Thread.Sleep(1000);
 
+            //Navigate to last page
+            IWebElement Lastpage = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span"));
+            Lastpage.Click();
+
             //Click edit button
-            IWebElement editbutton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[3]/td[5]/a[1]"));
+            IWebElement editbutton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[9]/td[5]/a[1]"));
             editbutton.Click();
 
             //Clear previous code name and add new one
@@ -95,7 +99,7 @@ namespace TimeMaterials_Auto.Pages
             IWebElement Lastpageagain = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span"));
             Lastpageagain.Click();
 
-            Assert.That(driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[3]/td[1]")).Text == "Amazing");
+            Assert.That(driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[9]/td[1]")).Text == "Amazing");
 
             /*if (driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[3]/td[1]")).Text == "Amazing")
 

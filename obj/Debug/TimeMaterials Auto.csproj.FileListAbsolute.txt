@@ -15,3 +15,7 @@ C:\Users\Rammy\Desktop\Classwork\TimeMaterials\TimeMaterials Auto\bin\Debug\nuni
 C:\Users\Rammy\Desktop\Classwork\TimeMaterials\TimeMaterials Auto\bin\Debug\nunit.framework.dll
 C:\Users\Rammy\Desktop\Classwork\TimeMaterials\TimeMaterials Auto\bin\Debug\nunit.framework.pdb
 C:\Users\Rammy\Desktop\Classwork\TimeMaterials\TimeMaterials Auto\bin\Debug\nunit.framework.xml
+C:\Users\Rammy\Desktop\Classwork\TimeMaterials\TimeMaterials Auto\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Rammy\Desktop\Classwork\TimeMaterials\TimeMaterials Auto\bin\Debug\System.ValueTuple.dll
+C:\Users\Rammy\Desktop\Classwork\TimeMaterials\TimeMaterials Auto\bin\Debug\TechTalk.SpecFlow.dll
+C:\Users\Rammy\Desktop\Classwork\TimeMaterials\TimeMaterials Auto\bin\Debug\Newtonsoft.Json.xml
